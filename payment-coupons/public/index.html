@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>360Pay · Ejemplo de integración API</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" type="module"></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/" aria-label="Inicio 360Pay">360<span>Pay</span></a><span class="toplabel">Ejemplo de integración</span><span class="badge">SANDBOX</span></header>
+  <main>
+    <div class="intro"><p class="eyebrow">DEL COBRO AL ENLACE DE PAGO</p><h1>Un cupón.<br>Dos formas de pagar.</h1><p class="subtitle">Crea un cupón con datos de prueba y utiliza los enlaces que devuelve la API.</p></div>
+    <div class="notice" id="connection" role="status">Comprobando configuración de sandbox…</div>
+    <div class="workspace">
+      <section class="panel create-panel" aria-labelledby="create-heading">
+        <div class="section-heading"><span class="step">01</span><div><h2 id="create-heading">Crear un cupón</h2><p>Una referencia por cada cobro.</p></div></div>
+        <form id="coupon-form">
+          <label>Nombre del cliente<input name="customer_name" value="Cliente Demo" maxlength="200" required autocomplete="off"></label>
+          <div class="fields"><label>Monto en soles<input name="amount" type="number" value="10.50" min="0.01" step="0.01" max="999999999999.99" required></label><label>Fecha de vencimiento<input name="expiry_day" type="date" required></label></div>
+          <label>Código de pago<input name="payment_coupon_code" id="coupon-code" placeholder="Prefijo del negocio + código" pattern="[A-Za-z0-9]{1,14}" maxlength="14" required autocomplete="off"><small id="prefix-hint">Usa el prefijo de recaudo de tu negocio.</small></label>
+          <label>Descripción<input name="description" value="Cuota de demostración" maxlength="500" required></label>
+          <label>Referencia externa<input name="external_ref" maxlength="160" required autocomplete="off"><small>Conserva este valor al reintentar el mismo cobro.</small></label>
+          <button class="primary" id="create-button" type="submit" disabled>Crear cupón en sandbox <span aria-hidden="true">→</span></button>
+          <button class="text-button" id="new-reference" type="button">Preparar otro cobro</button>
+        </form>
+        <p class="footnote">La API key permanece en el servidor. Este formulario no confirma pagos.</p>
+      </section>
+      <section class="panel result-panel" aria-labelledby="result-heading">
+        <div class="section-heading"><span class="step">02</span><div><h2 id="result-heading">Usar los enlaces</h2><p>Elige la experiencia que ofrecerás a tu cliente.</p></div></div>
+        <div id="empty-state" class="empty-state"><span class="empty-icon" aria-hidden="true">↗</span><h3>Tu cupón aparecerá aquí</h3><p>Al crearlo, recibirás el enlace público y las opciones disponibles por banco.</p></div>
+        <div id="coupon-result" hidden>
+          <div class="coupon-summary"><div><span class="label">MONTO DEL CUPÓN</span><strong id="result-amount"></strong></div><span class="status" id="result-status"></span></div>
+          <div class="code-row"><div><span class="label">CÓDIGO DE PAGO</span><strong id="result-code"></strong></div><button class="compact" id="copy-code" type="button">Copiar código</button></div>
+          <article class="link-case"><span class="case-tag">CASO A · PAYMENT_URL</span><h3>Una página con todas las opciones</h3><p>Tu cliente elige banco y sigue las instrucciones de 360Pay.</p><a id="payment-link" class="primary" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Abrir página de pago <span aria-hidden="true">↗</span></a></article>
+          <article class="link-case banks-case"><span class="case-tag">CASO B · BANK_DEEPLINKS</span><h3>Abrir un banco directamente</h3><p>Usa el enlace recibido para el banco elegido.</p><div id="bank-links" class="bank-grid"></div><p class="bank-note">BBVA abre el menú de servicios; ingresa el código. Scotiabank utiliza la guía manual de la página de pago.</p></article>
+          <button class="secondary refresh" id="refresh-coupon" type="button">Consultar estado del cupón</button>
+          <p class="footnote">Abrir un enlace no confirma el pago. Consulta el estado en la API.</p>
+        </div>
+      </section>
+    </div>
+    <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+    <section class="technical" aria-label="Solicitud y respuesta de la API">
+      <details><summary>Solicitud que envía el servidor <span>POST /v1/payment-coupons</span></summary><pre id="request-preview"></pre></details>
+      <details id="response-details"><summary>Respuesta de la API <span id="http-status">Esperando solicitud</span></summary><pre id="response-preview">Crea un cupón para ver la respuesta.</pre></details>
+    </section>
+    <footer><span>API de sandbox · datos de prueba · PEN</span><a href="https://sandbox.api.360studio.app/docs/api" target="_blank" rel="noopener noreferrer">Referencia de la API ↗</a></footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "Content-Type": "application/json",
+  "X-360Studio-Event-Id": "evt_00000000000000000000000000000042",
+  "X-360Studio-Delivery-Id": "507f1f77bcf86cd799439014",
+  "X-360Studio-Webhook-Id": "507f1f77bcf86cd799439015",
+  "X-360Studio-Timestamp": "2030-10-14T15:30:00.000Z",
+  "X-360Studio-Signature": "sha256=0000000000000000000000000000000000000000000000000000000000000000",
+  "X-360Studio-Attempt": "1"
+}

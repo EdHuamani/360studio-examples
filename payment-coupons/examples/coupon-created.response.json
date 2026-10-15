@@ -1,0 +1,31 @@
+{
+  "success": true,
+  "data": {
+    "id": "507f1f77bcf86cd799439011",
+    "workspace_id": "507f1f77bcf86cd799439013",
+    "contact_id": "507f1f77bcf86cd799439012",
+    "amount": 10.5,
+    "currency": "PEN",
+    "description": "Cuota de demostración",
+    "status": "active",
+    "external_ref": "DEMO-COBRO-001",
+    "payment_coupon_code": "ACA000042",
+    "payment_reference": "DEMOREF000042",
+    "payment_url": "https://360pay-site.web.app/p/TOKEN_DEMO_NO_OPERATIVO_000042",
+    "bank_deeplinks": {
+      "bcp": "https://360pay-site.web.app/l/TOKEN_DEMO_NO_OPERATIVO_000042/bcp",
+      "yape": "https://360pay-site.web.app/l/TOKEN_DEMO_NO_OPERATIVO_000042/yape",
+      "interbank": "https://360pay-site.web.app/l/TOKEN_DEMO_NO_OPERATIVO_000042/interbank",
+      "bbva": "https://360pay-site.web.app/l/TOKEN_DEMO_NO_OPERATIVO_000042/bbva",
+      "scotiabank": null
+    },
+    "expiry_policy": "informational",
+    "issue_date": "2030-10-14T15:00:00.000Z",
+    "expiry_date": "2030-10-31T23:59:59.000Z",
+    "created_at": "2030-10-14T15:00:00.000Z",
+    "updated_at": "2030-10-14T15:00:00.000Z"
+  },
+  "meta": {
+    "idempotent_replay": false
+  }
+}

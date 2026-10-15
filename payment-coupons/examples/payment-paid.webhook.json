@@ -1,0 +1,13 @@
+{
+  "event": "payment_coupon.paid",
+  "version": 1,
+  "occurred_at": "2030-10-14T15:30:00.000Z",
+  "data": {
+    "payment_coupon_id": "507f1f77bcf86cd799439011",
+    "payment_reference": "DEMOREF000042",
+    "external_ref": "DEMO-COBRO-001",
+    "amount": 10.5,
+    "currency": "PEN",
+    "paid_at": "2030-10-14T15:30:00.000Z"
+  }
+}

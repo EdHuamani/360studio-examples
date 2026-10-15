@@ -1,0 +1,14 @@
+{
+  "name": "360pay-api-example",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ejemplo mínimo de cupones, payment_url y bank_deeplinks en sandbox",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node --env-file=.env server.mjs",
+    "check": "node --check server.mjs && node --check public/app.js && node --check examples/verify-webhook-signature.mjs && node --check examples/verify-webhook-demo.mjs",
+    "demo:webhook": "node examples/verify-webhook-demo.mjs",
+    "test": "node --test test/server.test.mjs test/webhook-signature.test.mjs"
+  }
+}
